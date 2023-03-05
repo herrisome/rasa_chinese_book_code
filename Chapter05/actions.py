@@ -2,6 +2,7 @@ from typing import Any, Dict, List, Text
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet, AllSlotsReset
 
 from service.normalization import text_to_date
 from service.weather import get_text_weather_date
@@ -20,7 +21,7 @@ class WeatherFormAction(Action):
         date_object = text_to_date(date_text)
 
         if not date_object:  # parse date_time failed
-            msg = "暂不支持查询 {} 的天气".format([city, date_text])
+            msg = "暂不支持查询 {} 的变更情况".format([city, date_text])
             dispatch.utter_message(msg)
         else:
             try:
@@ -30,5 +31,4 @@ class WeatherFormAction(Action):
                 dispatch.utter_message(exec_msg)
             else:
                 dispatch.utter_message(weather_data)
-
-        return []
+        return [AllSlotsReset()]

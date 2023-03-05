@@ -3,6 +3,7 @@ version: "3.0"
 intents:
   - greet
   - goodbye
-  - medicine
-  - medical_department
-  - medical_hospital
+  - 变更详情查询
+  - 系统查询
+  - 变更工单查询
+  - 变更情况操作

@@ -20,7 +20,7 @@ rasa train
 ## 使用 API 密钥启动 Rasa 动作服务器
 
 ```shell
-SENIVERSE_KEY=xxx rasa run actions
+SENIVERSE_KEY=SmtHwEQwOy0o95bmA rasa run actions
 ```
 
 `xxx` 是我们可以从 [https://www.seniverse.com/](https://www.seniverse.com/) 获取的 API 密钥.

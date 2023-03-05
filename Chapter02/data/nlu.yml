@@ -14,25 +14,93 @@ nlu:
       - 拜
       - 退出
       - 结束
-  - intent: medicine
+  - intent: 变更工单查询
     examples: |
-      - [感冒](disease)了该吃什么药
-      - 我[便秘](disease)了，该吃什么药
-      - 我[胃痛](disease)，该吃什么药
-      - 一直[打喷嚏](disease)吃什么药好
-      - 父母都有[高血压](disease)，我应该推荐他们吃什么药好呢
-      - 头上烫烫的，感觉[发烧](disease)了，该吃什么药好
-      - [减肥](disease)有什么好的药品推荐吗？
-  - intent: medical_department
+      - [本次](date)变更是不是都[审批完成](status)了
+      - [我们](person)[组](group)的变更单是不是都审批过了
+      - [这次](date)变更涉及多少工单
+      - [这次](date)变更有几个[补提](itoms_type)工单
+      - [这次](date)变更的[补提](itoms_type)工单涉及哪些[系统](system)
+      - [最近三次](date)变更的[补提](itoms_type)工单对比
+      - [最近四次](date)的回退情况对比
+      - [今天](date)提了几个[补提](itoms_type)回退
+      - [应用运维一中心](center)有多少个[补提](itoms_type)回退
+      - [应用运维一中心](center)有多少变更工单
+      - [零售业务组](group)有多少个[审批完](status)工单
+      - 查看当前[审批完](status)工单个数
+      - 查看[金融市场组](group)[审批完](status)工单详情
+      - 查看[本人](person)是否有[审批完](status)工单
+      - 查看[本人](person)[系统](system)是否有[补提](itoms_type)回退工单
+      - 查看[本人](person)[系统](system)历史[补提](itoms_type)回退工单
+      - 查看[组内](group)变更工单个数
+      - 查看[组内](group)紧急变更工单个数
+      - 查看[组内](group)[系统](system)最近一个月紧急变更比例
+      - [我](person)本周有几个[系统](system)变更
+      - [我](person)今年变更最多的[系统](system)是那个
+      - [我](person)还有几个[审批](status)变更工单
+      - [本次](date)一共有多少个[系统](system)参与变更
+      - [本次](date)变更有多少个变更工单
+      - [本次](date)[我](person)的[小组](group)一个有多少个[系统](system)变更
+      - [本次](date)有多少个[A类](sys_level)[系统](system)参与了变更
+      - [本次](date)[一中心](center)有多少个[系统](system)变更
+  - intent: 变更情况操作
     examples: |
-      - [感冒](disease)了该吃去哪个科室看病
-      - 我[便秘](disease)了，该去挂哪个科室的号
-      - 我[胃痛](disease)，该去医院看哪个门诊啊
-      - 一直[打喷嚏](disease)挂哪一个科室的号啊
-      - [头疼](disease)该挂哪科
-  - intent: medical_hospital
+      - 请把[我](person)[[本次](date)](date)变更[系统](system)全部设置成[已完成](status)
+      - 请把[我](person)[[本次](date)](date)变更[系统](system)全部设置成[验证中](status)
+      - 请把[我](person)[[本次](date)](date)变更[系统](system)全部设置成[变更中](status)
+      - 能不能把[[我](person)名下的[系统](system)](system)全部置成[未开始](status)
+  - intent: 系统查询
     examples: |
-      - 我生病了，不知道去哪里看病
-      - [减肥](disease)有什么好的医院或者健康中心推荐吗？
-      - 想做个[体检](disease)，有哪家医院或者哪里的诊所或者健康中心比较实惠啊？
-      - 父母都有[高血压](disease)，我应该推荐他们去哪家医院好呢
+      - [我的](person)[系统](type)都有哪些？
+      - [现金管理项目](project)下有哪些[系统](type)
+      - 查看[本人](person)[系统级别](type)
+      - 查看[组内](person)[系统级别](type)
+      - 查看[海外核心](system)[系统级别](type)
+  - intent: 自动化流程查询
+    examples: |
+      - [FDM系统](system)[本次](date)有[多少个](count)自动化流程
+      - [FDM系统](system)自动化流程的执行情况
+      - [这次](date)变更有多少eva执行的
+      - [这次](date)变更eva执行的有多少手动多少自动
+      - [这次](date)变更有多少手动执行的流程
+      - [非eva变更](type)的[系统](system)有哪些
+      - [PBC应用](system)[变更类](flow_type)[国产化84流程](flow_name)执行完了没有
+      - 查看[工会财务管理系统](system)变更流程详情
+      - 查看[工会财务管理系统](system)目前处于进行中的流程
+      - 查看[MDS系统](system)变更执行[失败](status)流程
+      - 查看[MDS系统](system)变更流程执行详情
+      - 查看[本次](date)变更流程是否[通过自动化部署](type)
+      - 查看[个人](person)系统变更流程执行[失败](status)比例
+      - [本次](date)变更[我](person)有几个系统是[无人值守变更](type)
+      - [本月](date)每个小组的[自动化变更率](trpy)是多少
+      - [我的](person)系统[本月](date)[自动化变更率](trpy)是多少
+
+      - 查看[海外核心](system)[系统级别](type)
+  - intent: 变更详情查询
+    examples: |
+      - [我们](person)[组](group)今天变更完了没有？[我们](person)
+      - [我的](person)[系统](system)有哪些[没有变更完](status)？
+      - [我的](person)[系统](system)有哪些[已完成](status)的？
+      - [我们](person)[组](group)里的A类B类[系统](system)还有哪些没变更完
+      - [这次](date)变更的整体进度怎么样
+      - [数据业务组](group)现在的变更情况
+      - [这次](date)变更[最先开始](time_first_start)的[系统](system)是哪个
+      - [这次](date)变更[耗时最长](time_during_full)的[系统](system)是哪个
+      - 公司业务板块中有多少A类[系统](system)在变更
+      - 应用运维二中心有几个B类[系统](system)变更完成
+      - 支付业务[组](group)有多少个AB类型的[系统](system)变更
+      - 现在变更情况怎么样，还有哪些没完成的
+      - 查看[系统](system)是否有未审批工单
+      - 查看[对公数据支持](system)当前变更情况
+      - 查看本次变更整体变更进度
+      - 查看[金融市场组](group)各[系统](system)变更状态
+      - 查看[工会财务管理系统](system)是否变更完成
+      - 查看负责[系统](system)历史变更时长趋势
+      - 查看负责[系统](system)历史变更自动化部署比例趋势
+      - 查看负责[系统](system)历史变更成功率趋势
+      - 查看[组](group)内[系统](system)[最后变更完成](time_last_end)时间
+      - [我](person)目前还有那些[系统](system)[未变更完](status)
+      - [我的](person)小[组](group)有几个[系统](system)[已完成](status)变更
+      - [我](person)[最早变更完](time_first_end)的[系统](system)是那个
+      - [我的](person)那个[系统](system)本次变更[验证时间最长](time_during_Verification)
+
